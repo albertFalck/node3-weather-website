@@ -7,6 +7,10 @@ const geocode = require('../utils/geocode')
 //Skapar en ny express applikation
 const app = express()
 
+//process.env.PORT tar port:en för den nuvarande miljön, vilket är väldigt användbart om man har webbsidan uppladdad på en webb hosting site.
+//Om det inte finns någon "process.env.PORT" då kommer datorn att välja port 3000 istället
+const port = process.env.PORT || 3000
+
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -117,8 +121,8 @@ app.get('*', (req, res) => {
 //Startar up servern på en viss port. port 3000 är en port som används för utveckling
 //http baserad port: port 80
 //Andra parametern är en callback-funktion som säger vad som händer när servern startas upp.
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
 //När man startar upp denna applikation körs detta program tills man stänger av den.
 //Kom åt webbsidan på localhost:3000. Kom åt hjälpsidan på "localhost:3000/help".

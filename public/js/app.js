@@ -30,7 +30,8 @@ weatherForm.addEventListener('submit', (e) => {
     //Vad som än ges för input i dokumentet, genom form:en, blir värdet för "location"
     const location = search.value
     
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+    //Addressen är "http://localhost:3000..." om man bara kör webbservern som sin egna dator.
+    fetch('/weather?address=' + location).then((response) => {
     //response.json() parse:ar allt från browsern. 
     //callback-funktionen inuti dess then() funktion körs när all data har blivit parse:ad.
     response.json().then((data) => {
