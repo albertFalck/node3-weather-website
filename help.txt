@@ -1,0 +1,2 @@
+public är allt som ska skickas till användaren
+src är allt som servern ska använda, som inte användaren ser. 
